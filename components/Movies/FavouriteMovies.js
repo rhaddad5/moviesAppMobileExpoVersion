@@ -50,7 +50,7 @@ export default function FavouriteMovies({navigation}) {
       <FlatList
         data={favouriteMovies}
         renderItem={_renderMovie}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   )

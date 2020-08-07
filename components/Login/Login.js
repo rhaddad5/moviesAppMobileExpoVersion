@@ -8,6 +8,8 @@ export default function Login({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [userAccessTokenPresent, setUserAccessTokenPresent] = useState(false);
+  const [usernamePresent, setUsernamePresent] = useState(false);
 
   const handleChangeEmail = (value) => {
     setEmail(value);
@@ -18,14 +20,17 @@ export default function Login({navigation}) {
   };
 
   const loginUser = () => {
-    console.log("coucou")
     login(email, password)
     .then(data => {
       console.log(data)
+      setUsernamePresent(true);
+      setUserAccessTokenPresent(true);
       if(data.status !== 200) {
         setErrorMessage(data.data)
+        setUsernamePresent(false);
+        setUserAccessTokenPresent(false);
       } else {
-        if((getAccessToken() !== undefined) && (getUsername() !== undefined)) {
+        if(userAccessTokenPresent && usernamePresent) {
           navigation.navigate("LoggedIn");
         }
       }

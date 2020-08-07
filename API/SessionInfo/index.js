@@ -7,7 +7,7 @@ export const getAccessToken = async () => {
       return value;
     } else {
       console.log("Token not found");
-      return undefined;
+      return value;
     }
   } catch(e) {
     console.log("Error getting access token", e);
@@ -45,7 +45,7 @@ export const getUsername = async () => {
       return value;
     } else {
       console.log("Username not found");
-      return undefined;
+      return value;
     }
   } catch(e) {
     console.log("Error getting username", e);
