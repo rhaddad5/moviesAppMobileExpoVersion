@@ -29,10 +29,10 @@ export default function Login({navigation}) {
         setErrorMessage(data.data)
         setUsernamePresent(false);
         setUserAccessTokenPresent(false);
-      } else {
-        if(userAccessTokenPresent && usernamePresent) {
+      }
+      if(userAccessTokenPresent && usernamePresent) {
+        console.log("COUCOU")
           navigation.navigate("LoggedIn");
-        }
       }
     })
   };

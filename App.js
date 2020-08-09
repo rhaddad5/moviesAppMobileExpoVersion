@@ -67,7 +67,7 @@ export default function App() {
   }, []);
 
 
-  // if(userAccessTokenPresent && usernamePresent) {
+  if(!(userAccessTokenPresent && usernamePresent)) {
     return (
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
@@ -84,6 +84,24 @@ export default function App() {
         </SafeAreaView>
       </Provider>
     );
+  } else {
+    return (
+      <Provider store={store}>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="LoggedIn" component={LoggedIn} options={{title: ""}}/>
+              <Stack.Screen name="Home" component={Home} options={{title: ""}}/>
+              <Stack.Screen name="Signup" component={Signup} options={{title: ""}}/>
+              <Stack.Screen name="Login" component={Login} options={{title: ""}}/>
+              <Stack.Screen name="Logout" component={Logout} options={{title: "Log out"}}/>
+              <Stack.Screen name="MovieDetails" component={MovieDetails} options={{title: ""}}/>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </Provider>
+    );
+  }
   // } else {
   //   return (
   //     <Provider store={store}>
