@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../_Shared/Banner";
 import MoviesList from "./MoviesList";
 import {useSelector} from "react-redux";
-import {View, StyleSheet} from "react-native";
+import {View} from "react-native";
 
 export default function MoviesContainer({navigation}) {
 
@@ -17,5 +17,3 @@ export default function MoviesContainer({navigation}) {
     </View>
   )
 }
-
-

@@ -26,7 +26,7 @@ export default function MovieDetails({route, navigation}) {
         <Text style={styles.title}>{movieInfo.[0]["title"]}</Text>
         <Text style={styles.date}>{movieInfo[0]["release_date"]}</Text>
         {(getAccessToken !== undefined) ? <FavouriteButton movieTitle={movieInfo.[0]["title"]} movieDate={movieInfo[0]["release_date"]} movieId={movieInfo[0]["id"]} movieOverview={movieInfo[0]["overview"]} movieImagePath={`https://image.tmdb.org/t/p/original/${movieInfo[0]["poster_path"]}`}/>  : ""}
-        <Text style={styles.overview}>{movieInfo[0]["overview"]}</Text>x
+        <Text style={styles.overview}>{movieInfo[0]["overview"]}</Text>
       </View>
     </ScrollView>
   )

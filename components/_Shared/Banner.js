@@ -1,8 +1,9 @@
 import React from "react";
-import {View, Text, StyleSheet, ImageBackground} from "react-native";
+import {View, Text, StyleSheet, ImageBackground, Dimensions} from "react-native";
 import SearchInput from "./SearchInput";
 
 export default function Banner() {
+
   return(
     <View>
       <ImageBackground source={require("../../assets/movieBanner.jpg")} style={styles.image}>
@@ -16,8 +17,8 @@ export default function Banner() {
 
 const styles = StyleSheet.create({
   image: {
-    height: 250,
-    paddingVertical: "5%",
+    height: 0.40 * Dimensions.get('window').height,
+    paddingVertical: "10%",
     paddingHorizontal: "10%",
     },
   bannerTitle: {
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     textShadowColor: "rgba(0,0,0,0.2)",
     textShadowOffset: {width: 1, height: 1},
     textShadowRadius: 3,
-    marginBottom: 30,
+    marginBottom: 15,
   },
   bannerText: {
     color: "#ececec",

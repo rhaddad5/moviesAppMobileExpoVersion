@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 30,
     marginVertical: 5,
+    textAlign: "center",
   },
   date: {
     opacity: 0.7,

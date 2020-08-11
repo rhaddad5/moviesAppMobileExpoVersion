@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 30,
+    marginTop: 15,
   },
   containerInput: {
     width: "75%",
