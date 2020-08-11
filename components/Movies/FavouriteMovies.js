@@ -50,7 +50,7 @@ export default function FavouriteMovies({navigation}) {
       <FlatList
         data={favouriteMovies}
         renderItem={_renderMovie}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   )
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 30,
     marginVertical: 5,
+    textAlign: "center",
   },
   date: {
     opacity: 0.7,

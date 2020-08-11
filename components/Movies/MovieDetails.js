@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {movieDetailsSearch} from "../../API/MovieSearch";
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import FavouriteButton from "../_Shared/FavouriteButton";
 import {getAccessToken} from "../../API/SessionInfo";
 import {useFocusEffect} from "@react-navigation/native";
@@ -19,16 +19,16 @@ export default function MovieDetails({route, navigation}) {
   const movieInfo = useSelector(state => state.moviesListReducer);
 
   return(
-    <View style={styles.cardContainer}>
+    <ScrollView contentContainerStyle={styles.cardContainer}>
       <Image
-        source={{uri:`https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`}} style={styles.image}/>
+        source={{uri:`https://image.tmdb.org/t/p/original/${movieInfo[0]["poster_path"]}`}} style={styles.image}/>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>{movieInfo.title}</Text>
-        <Text style={styles.date}>{movieInfo.release_date}</Text>
-        {(getAccessToken !== undefined) ? <FavouriteButton movieTitle={movieInfo.title} movieDate={movieInfo.release_date} movieId={movieInfo.id} movieOverview={movieInfo.overview} movieImagePath={`https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`}/>  : ""}
-        <Text style={styles.overview}>{movieInfo.overview}</Text>
+        <Text style={styles.title}>{movieInfo.[0]["title"]}</Text>
+        <Text style={styles.date}>{movieInfo[0]["release_date"]}</Text>
+        {(getAccessToken !== undefined) ? <FavouriteButton movieTitle={movieInfo.[0]["title"]} movieDate={movieInfo[0]["release_date"]} movieId={movieInfo[0]["id"]} movieOverview={movieInfo[0]["overview"]} movieImagePath={`https://image.tmdb.org/t/p/original/${movieInfo[0]["poster_path"]}`}/>  : ""}
+        <Text style={styles.overview}>{movieInfo[0]["overview"]}</Text>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

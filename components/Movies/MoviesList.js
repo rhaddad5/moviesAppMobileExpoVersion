@@ -28,7 +28,7 @@ export default function MoviesList({movies, navigation}) {
       <FlatList
         data={movies}
         renderItem={_renderMovie}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
       />
     </View>
   )

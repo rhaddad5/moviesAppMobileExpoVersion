@@ -12,7 +12,7 @@ export const moviesListSearch = (query, dispatch) => {
 export const movieDetailsSearch = (id, dispatch) => {
   axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=7ea46f482f53526386b509ee7fe0fe02&language=en-US`)
   .then((res) => {
-    dispatch(fetchMovieDetails(res.data));
+    dispatch(fetchMovieDetails([res.data]));
   })
   .catch((e) => console.log("erreur get movie:", e))
 };

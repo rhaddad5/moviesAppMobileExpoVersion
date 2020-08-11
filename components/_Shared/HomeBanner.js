@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, ImageBackground, Button, Platform} from "react-native";
+import {View, Text, StyleSheet, ImageBackground, Button, Platform, Dimensions} from "react-native";
 
 export default function HomeBanner({navigation}) {
   return(
@@ -26,10 +26,9 @@ export default function HomeBanner({navigation}) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 450,
-    height: 800,
-    paddingVertical: 240,
-    paddingHorizontal: 40,
+    height: Dimensions.get('window').height,
+    paddingVertical: "30%",
+    paddingHorizontal: "15%",
     },
   bannerTitle: {
     color: "white",
