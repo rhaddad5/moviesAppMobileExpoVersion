@@ -16,10 +16,9 @@ export default function Banner() {
 
 const styles = StyleSheet.create({
   image: {
-    width: 450,
     height: 350,
-    paddingVertical: 100,
-    paddingHorizontal: 40,
+    paddingVertical: "25%",
+    paddingHorizontal: "10%",
     },
   bannerTitle: {
     color: "white",

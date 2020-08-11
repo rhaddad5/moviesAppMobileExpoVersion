@@ -72,7 +72,7 @@ export default function App() {
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
           <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator headerMode="none">
               <Stack.Screen name="Home" component={Home} options={{title: ""}}/>
               <Stack.Screen name="LoggedIn" component={LoggedIn} options={{title: ""}}/>
               <Stack.Screen name="Signup" component={Signup} options={{title: ""}}/>
@@ -89,7 +89,7 @@ export default function App() {
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
           <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator headerMode="none">
               <Stack.Screen name="LoggedIn" component={LoggedIn} options={{title: ""}}/>
               <Stack.Screen name="Home" component={Home} options={{title: ""}}/>
               <Stack.Screen name="Signup" component={Signup} options={{title: ""}}/>
