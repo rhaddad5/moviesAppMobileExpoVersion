@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView, Platform} from 'react-native';
 import {Provider} from "react-redux";
 import store from "./redux/store";
 import MoviesContainer from "./components/Movies/MoviesContainer";
@@ -13,9 +13,11 @@ import Home from "./components/Home/Home";
 import FavouriteMovies from "./components/Movies/FavouriteMovies";
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {getAccessToken, getUsername, clearAsyncStorage} from "./API/SessionInfo";
+import Constants from 'expo-constants';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
+const statusBarHeight = Constants.statusBarHeight
 
 function LoggedIn() {
 
@@ -66,7 +68,6 @@ export default function App() {
     })
   }, []);
 
-
   if(!(userAccessTokenPresent && usernamePresent)) {
     return (
       <Provider store={store}>
@@ -84,7 +85,7 @@ export default function App() {
         </SafeAreaView>
       </Provider>
     );
-  } else {
+  }
     return (
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
@@ -101,7 +102,7 @@ export default function App() {
         </SafeAreaView>
       </Provider>
     );
-  }
+
   // } else {
   //   return (
   //     <Provider store={store}>
@@ -124,5 +125,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    ...Platform.select({
+              android: {
+                marginTop: statusBarHeight,
+              },
+            }),
   },
 });

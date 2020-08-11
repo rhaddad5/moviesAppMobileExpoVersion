@@ -3,7 +3,7 @@ import {View, Text, FlatList, StyleSheet, Image, TouchableOpacity} from "react-n
 import MovieDetails from "./MovieDetails";
 
 export default function MoviesList({movies, navigation}) {
-  console.log(movies)
+
   const _renderMovie = ({item}) => {
 
     return(
