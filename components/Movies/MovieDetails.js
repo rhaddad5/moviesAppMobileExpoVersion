@@ -12,12 +12,12 @@ export default function MovieDetails({route, navigation}) {
 
   const {id} = route.params;
 
-  useEffect(() => {
+  useFocusEffect(() => {
     movieDetailsSearch(id, dispatch);
   }, []);
 
   const movieInfo = useSelector(state => state.moviesListReducer);
-  console.log(movieInfo)
+
   return(
     <ScrollView contentContainerStyle={styles.cardContainer}>
       <Image

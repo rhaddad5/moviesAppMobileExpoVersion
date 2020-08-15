@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   noMoviesText: {
     color: "white",
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: "bold",
   },
   noMoviesContainer: {
