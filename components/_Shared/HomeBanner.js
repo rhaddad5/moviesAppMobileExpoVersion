@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     textShadowColor: "rgba(0,0,0,0.2)",
     textShadowOffset: {width: 1, height: 1},
     textShadowRadius: 3,
+    marginBottom: 30,
   },
   buttonsContainer: {
     flexDirection: "row",
