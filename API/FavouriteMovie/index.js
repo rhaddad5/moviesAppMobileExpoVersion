@@ -4,16 +4,16 @@ import {getAccessToken} from "../SessionInfo";
 
 export const saveFavouriteMovie = async (title, releaseDate, id, overview, imagePath) => {
   const token = await getAccessToken();
-  const headers = {"Authorization": `Bearer ${token}`, "Access-Control-Allow-Origin": "*"};
-  let alreadyFav = [];
+  let headers = {"Authorization": `Bearer ${token}`, "Access-Control-Allow-Origin": "*"};
+  let alreadyFav = false;
   axios.get("https://movies-rest-api-web.herokuapp.com/movies", {headers: headers})
   .then((res) => {
     res.data.forEach((movie) => {
       if(movie.tmdbId === id) {
-        alreadyFav.push(true);
+        alreadyFav = true;
       }
     });
-    if(alreadyFav[0]) {
+    if(alreadyFav) {
       console.log("Movie already in favourites");
     } else {
       axios.post("https://movies-rest-api-web.herokuapp.com/movies", {title: title, releaseDate: releaseDate, tmdbId: id, overview: overview, imagePath: imagePath}, {headers: headers})
@@ -25,7 +25,7 @@ export const saveFavouriteMovie = async (title, releaseDate, id, overview, image
 };
 
 export const destroyFavouriteMovie = (id) => {
-  const headers = {"Access-Control-Allow-Origin": "*"};
+  let headers = {"Access-Control-Allow-Origin": "*"};
   axios.delete(`https://movies-rest-api-web.herokuapp.com/movies/${id}`, {headers: headers})
   .then((res) => console.log("REPONSE DELETE", res))
   .catch((e) => console.log("ERREUR DELETE", e))
@@ -33,9 +33,10 @@ export const destroyFavouriteMovie = (id) => {
 
 export const getFavouriteMovies = async (dispatch) => {
   const token = await getAccessToken();
-  const headers = {"Authorization": `Bearer ${token}`, "Access-Control-Allow-Origin": "*"};
+  let headers = {"Authorization": `Bearer ${token}`, "Access-Control-Allow-Origin": "*"};
   axios.get("https://movies-rest-api-web.herokuapp.com/movies", {headers: headers})
   .then((res) => {
+    // console.log("RES DATA", res.data)
     dispatch(fetchFavouriteMovies(res.data))
   })
   .catch((e) => console.log("ERREUR GET FAV", e))

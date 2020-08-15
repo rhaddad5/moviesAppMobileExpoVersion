@@ -5,7 +5,6 @@ import MovieDetails from "./MovieDetails";
 export default function MoviesList({movies, navigation}) {
 
   const _renderMovie = ({item}) => {
-
     return(
       <TouchableOpacity
         onPress={() => {navigation.navigate("MovieDetails", {
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#4E1214",
     alignItems: "center",
     borderWidth: 1,
     borderRadius: 2,

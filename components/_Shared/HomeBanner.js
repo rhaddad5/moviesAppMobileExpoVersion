@@ -27,8 +27,9 @@ export default function HomeBanner({navigation}) {
 const styles = StyleSheet.create({
   image: {
     height: Dimensions.get('window').height,
-    paddingVertical: "30%",
-    paddingHorizontal: "15%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     },
   bannerTitle: {
     color: "white",
@@ -49,8 +50,6 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: 30,
     ...Platform.select({
               android: {
                 justifyContent: "space-evenly",

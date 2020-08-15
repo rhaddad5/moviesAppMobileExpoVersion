@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {login} from "../../API/Login";
 import {View, Text, TextInput, Button, StyleSheet} from "react-native";
 import {getAccessToken, getUsername} from "../../API/SessionInfo";
+import {getFavouriteMovies} from "../../API/FavouriteMovie";
+import {useDispatch} from "react-redux";
 
 export default function Login({navigation}) {
 
@@ -10,6 +12,8 @@ export default function Login({navigation}) {
   const [errorMessage, setErrorMessage] = useState(false);
   const [userAccessTokenPresent, setUserAccessTokenPresent] = useState(false);
   const [usernamePresent, setUsernamePresent] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleChangeEmail = (value) => {
     setEmail(value);
@@ -22,19 +26,18 @@ export default function Login({navigation}) {
   const loginUser = () => {
     login(email, password)
     .then(data => {
-      console.log(data)
       setUsernamePresent(true);
       setUserAccessTokenPresent(true);
+      getFavouriteMovies(dispatch);
       if(data.status !== 200) {
         setErrorMessage(data.data)
         setUsernamePresent(false);
         setUserAccessTokenPresent(false);
       }
-      if(userAccessTokenPresent && usernamePresent) {
-        console.log("COUCOU")
-          navigation.navigate("LoggedIn");
-      }
     })
+    if(userAccessTokenPresent && usernamePresent) {
+      navigation.navigate("LoggedIn");
+    }
   };
 
   return(

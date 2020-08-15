@@ -2,7 +2,7 @@ import axios from "axios";
 import {storeAccessToken, storeUsername} from "../SessionInfo";
 
 export const login = (email, password) => {
-  const headers = {"Access-Control-Allow-Origin": "*"};
+  let headers = {"Access-Control-Allow-Origin": "*"};
   return axios.post("https://movies-rest-api-web.herokuapp.com/users/login", {email: email, password: password}, {headers: headers})
   .then((res) => {
     storeAccessToken(res.data.accessToken);

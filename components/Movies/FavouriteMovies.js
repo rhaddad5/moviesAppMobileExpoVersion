@@ -25,6 +25,7 @@ export default function FavouriteMovies({navigation}) {
 
   const favouriteMovies = useSelector(state => state.movieFavReducer);
   const username = useSelector(state => state.userReducer);
+  // console.log ("FAV MOVIES", favouriteMovies)
 
   const _renderMovie = ({item}) => {
     return(
@@ -59,6 +60,7 @@ export default function FavouriteMovies({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#4E1214",
   },
   image: {
     width: 300,
@@ -99,18 +101,17 @@ const styles = StyleSheet.create({
   },
   welcomeTitleWithMovies: {
     fontWeight: "bold",
-    fontSize: 35,
+    fontSize: 25,
     textAlign: "center",
-    opacity: 0.8,
-    color: "#4E1214",
+    color: "white",
   },
   welcomeTitleWithoutMovies: {
     fontWeight: "bold",
-    fontSize: 35,
+    fontSize: 25,
     textAlign: "center",
     opacity: 0.8,
     marginVertical: "50%",
-    color: "#4E1214",
+    color: "white",
   },
   link: {
     opacity: 0.5,

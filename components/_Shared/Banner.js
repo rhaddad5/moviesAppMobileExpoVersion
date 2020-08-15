@@ -17,13 +17,14 @@ export default function Banner() {
 
 const styles = StyleSheet.create({
   image: {
-    height: 0.40 * Dimensions.get('window').height,
-    paddingVertical: "10%",
-    paddingHorizontal: "10%",
+    height: 0.3 * Dimensions.get('window').height,
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingHorizontal: 5,
     },
   bannerTitle: {
     color: "white",
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "bold",
     textShadowColor: "rgba(0,0,0,0.2)",
     textShadowOffset: {width: 1, height: 1},
