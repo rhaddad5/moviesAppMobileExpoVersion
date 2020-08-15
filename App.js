@@ -21,11 +21,6 @@ const statusBarHeight = Constants.statusBarHeight
 
 function LoggedIn() {
 
-  // const onPressLogout = () => {
-  //   clearAsyncStorage()
-  //   navigation.navigate("Home");
-  // };
-
   return (
     <Tab.Navigator activeColor="#f0edf6"
       inactiveColor="#a3282c"

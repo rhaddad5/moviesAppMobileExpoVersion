@@ -25,7 +25,6 @@ export default function FavouriteMovies({navigation}) {
 
   const favouriteMovies = useSelector(state => state.movieFavReducer);
   const username = useSelector(state => state.userReducer);
-  // console.log ("FAV MOVIES", favouriteMovies)
 
   const _renderMovie = ({item}) => {
     return(

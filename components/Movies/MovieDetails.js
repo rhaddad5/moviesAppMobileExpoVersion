@@ -17,7 +17,7 @@ export default function MovieDetails({route, navigation}) {
   }, []);
 
   const movieInfo = useSelector(state => state.moviesListReducer);
-
+  console.log(movieInfo)
   return(
     <ScrollView contentContainerStyle={styles.cardContainer}>
       <Image

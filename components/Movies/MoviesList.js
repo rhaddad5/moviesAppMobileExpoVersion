@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, FlatList, StyleSheet, Image, TouchableOpacity} from "react-native";
+import {View, Text, FlatList, StyleSheet, Image, TouchableOpacity, Dimensions} from "react-native";
 import MovieDetails from "./MovieDetails";
 
 export default function MoviesList({movies, navigation}) {
@@ -23,12 +23,18 @@ export default function MoviesList({movies, navigation}) {
   };
 
   return(
-    <View>
-      <FlatList
-        data={movies}
-        renderItem={_renderMovie}
-        keyExtractor={(item) => item.id}
-      />
+    <View style={styles.contentContainer}>
+      {(!movies[0]) ?
+        <View style={styles.noMoviesContainer}>
+          <Text style={styles.noMoviesText}>Your movies list will appear here</Text>
+        </View>
+        :
+        <FlatList
+          data={movies}
+          renderItem={_renderMovie}
+          keyExtractor={(item) => item.id}
+        />
+      }
     </View>
   )
 }
@@ -39,10 +45,10 @@ const styles = StyleSheet.create({
     height: 400,
   },
   contentContainer: {
-    alignItems: "center",
+    backgroundColor: "#4E1214",
   },
   cardContainer: {
-    backgroundColor: "#4E1214",
+    backgroundColor: "white",
     alignItems: "center",
     borderWidth: 1,
     borderRadius: 2,
@@ -70,4 +76,16 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     marginVertical: 5,
   },
+  noMoviesText: {
+    color: "white",
+    fontSize: 25,
+    fontWeight: "bold",
+  },
+  noMoviesContainer: {
+    backgroundColor: "#4E1214",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 0.7 * Dimensions.get('window').height,
+  }
 })
